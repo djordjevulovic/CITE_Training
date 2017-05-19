@@ -1,6 +1,6 @@
 import requests
 from T1_REST_examples import REST_GET, HTTP_ACCEPT
-
+from T1_JSON_examples import JSON_REST_GET
 
 def Python_Exercize_1():
     # Build set containing strings with all IP addresses from subnet 192.168.1.0/28
@@ -42,6 +42,21 @@ def REST_Exercize_1():
     except requests.exceptions.RequestException:
         return ""
 
+def JSON_Exercize_1():
+    url = "http://ios-xe-mgmt.cisco.com:9443/restconf/api/config/interfaces?deep"
+
+    json = REST_GET(url, "root", "D_Vay!_10&", HTTP_ACCEPT.VND_JSON).json()
+
+    print("{:20s}{:20s}{:20s}".format("Interface", "IP Address","NetMask"))
+    print("{:-^60}".format("-"))
+
+    for interface in json["ietf-interfaces:interfaces"]["interface"]:
+        if "address" in interface["ietf-ip:ipv4"]:
+            ipaddr = interface["ietf-ip:ipv4"]["address"][0]["ip"]
+            netmask = interface["ietf-ip:ipv4"]["address"][0]["netmask"]
+            print("{:20s}{:20s}{:20s}".format(interface["name"], ipaddr, netmask))
+        else:
+            print("{:20s}".format(interface["name"], ipaddr, netmask))
 
 
 

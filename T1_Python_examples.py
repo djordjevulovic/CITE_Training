@@ -41,6 +41,10 @@ def Python_string_ops():
     octets=ipaddr.split('.')
     print(octets[0], octets[1], octets[2], octets[3])
 
+    last = int(octets[3])
+    ponovo = octets[0] + "." + octets[1] + "." + octets[2] + "." + str(last+1)
+    print (ponovo)
+
 def Python_string_formatting():
     print("{0:*^40}".format(sys._getframe().f_code.co_name))
 
@@ -104,7 +108,7 @@ def Python_sets():
     n1 = 1
     n2 = 7
     print ("set1 has "+str(n1)+": " + str(n1 in set1))
-    print ("set1 has "+str(n2)+": " + str(n1 in set1))
+    print ("set1 has "+str(n2)+": " + str(n2 in set1))
 
     set2 = { 4, 5, 6, 7, 8}
 
