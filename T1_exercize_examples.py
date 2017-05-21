@@ -42,6 +42,7 @@ def REST_Exercize_1():
     except requests.exceptions.RequestException:
         return ""
 
+
 def JSON_Exercize_1():
     url = "http://ios-xe-mgmt.cisco.com:9443/restconf/api/config/interfaces?deep"
 

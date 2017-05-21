@@ -1,6 +1,7 @@
 from lxml import etree
-from io import BytesIO
+from io import BytesIO, StringIO
 import sys
+from xml.dom import minidom
 
 def Build_Simple_XML():
     print("{0:*^40}".format(sys._getframe().f_code.co_name))
@@ -64,4 +65,15 @@ def XML_Find_IP(xml_string):
         if (action == "end" and elem.tag.endswith("primary")):
             primary_tag = False
 
+def XML_Find_IP_minidom(xml_string):
+    print("{0:*^40}".format(sys._getframe().f_code.co_name))
+
+    doc = minidom.parse(StringIO(xml_string))
+
+    primary_nodes = doc.getElementsByTagName('primary')
+
+    for primary in primary_nodes:
+        for child in primary.childNodes:
+            if (child.nodeType==minidom.Element.ELEMENT_NODE and child.tagName=="address"):
+                print("IP Address: %s" % (child.firstChild.data))
 

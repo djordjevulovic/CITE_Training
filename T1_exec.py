@@ -4,7 +4,7 @@ from T1_Python_examples import Python_complex_var_assignment, Python_var_convers
     Python_sets, Python_dictionaries, Python_if, Python_for, Python_while, Python_func, Python_read_file_1, Python_read_file_2, Python_read_file_3
 from T1_REST_examples import REST_GET_Basic_Test, REST_GET_Basic_Test_wrong_host, REST_GET_Basic_Test_wrong_host_with_exception, REST_GET_Test, \
     REST_POST_Test, REST_DELETE_Test
-from T1_XML_examples import Build_Simple_XML, Build_YANG_Like_XML, Print_XML, XML_Find_IP, XML_Traverse
+from T1_XML_examples import Build_Simple_XML, Build_YANG_Like_XML, Print_XML, XML_Find_IP, XML_Traverse, XML_Find_IP_minidom
 from T1_JSON_examples import JSON_Prettyprint, JSON_REST_GET_Test, JSON_Parse, JSON_print_APs, JSON_print_AP_radios, JSON_REST_POST_Test, \
     JSON_build_from_dictionary
 #################### Python Examples ####################################
@@ -80,6 +80,8 @@ xml_string = """
 #XML_Traverse(xml_string)
 
 #XML_Find_IP(xml_string)
+
+#XML_Find_IP_minidom(xml_string)
 
 #################### JSON Examples ####################################
 #JSON_REST_GET_Test()
