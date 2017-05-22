@@ -2,7 +2,7 @@ from T2_NETCONF_examples import NETCONF_get_full_config, NETCONF_get_interface_G
 
 ################### NETCONF Examples #########################
 
-#NETCONF_get_full_config()
+NETCONF_get_full_config()
 
 #NETCONF_get_interface_Gi2_config()
 

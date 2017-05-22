@@ -1,17 +1,19 @@
 from ncclient import manager
 from lxml import etree
 
+def NETCONF_prettyprint_XML_string(xml_string):
+    xml_bytes = etree.fromstring(xml_string.encode('utf-8'))
+    nice_xml_bytes = etree.tostring(xml_bytes, pretty_print=True)
+    nice_xml_string = nice_xml_bytes.decode('utf-8')
+
+    print(nice_xml_string)
 def NETCONF_get_full_config():
 
     m = manager.connect(host="ios-xe-mgmt.cisco.com", port=10000, username="root", password="D_Vay!_10&", hostkey_verify=False)
 
     xml_response_string = m.get_config(source='running').data_xml
 
-    xml_response_bytes = etree.fromstring(xml_response_string.encode('utf-8'))
-    nice_xml_bytes = etree.tostring(xml_response_bytes, pretty_print=True)
-    nice_xml_string = nice_xml_bytes.decode('utf-8')
-
-    print(nice_xml_string)
+    NETCONF_prettyprint_XML_string(xml_response_string)
 
 def NETCONF_get_interface_Gi2_config():
 
@@ -29,11 +31,7 @@ def NETCONF_get_interface_Gi2_config():
 
     xml_response_string = m.get_config(source='running', filter=filter_string).data_xml
 
-    xml_response_bytes = etree.fromstring(xml_response_string.encode('utf-8'))
-    nice_xml_bytes = etree.tostring(xml_response_bytes, pretty_print=True)
-    nice_xml_string = nice_xml_bytes.decode('utf-8')
-
-    print(nice_xml_string)
+    NETCONF_prettyprint_XML_string(xml_response_string)
 
 def NETCONF_create_new_subif():
 

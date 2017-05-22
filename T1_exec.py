@@ -15,7 +15,7 @@ from T1_JSON_examples import JSON_Prettyprint, JSON_REST_GET_Test, JSON_Parse, J
 
 #Python_string_ops()
 
-#Python_string_formatting()
+Python_string_formatting()
 
 #Python_arrays()
 
